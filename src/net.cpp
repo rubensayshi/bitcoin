@@ -415,6 +415,7 @@ CNode* ConnectNode(CAddress addrConnect, const char *pszDest)
         }
 
         pnode->nTimeConnected = GetTime();
+        pnode->fWhitelisted = CNode::IsWhitelistedRange((CNetAddr)addrConnect);
 
         return pnode;
     } else if (!proxyConnectionFailed) {
